@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='photo/oderman.jpg') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <title>Edit Game</title>
+</head>
+<body>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Edit Game</h1>
+
+      <form method="post">
+
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="name"
+              placeholder="Name of game" 
+              value="{{ request.form.get('name', game['name']) }}" 
+              required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Author</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="author"
+              placeholder="Author of game" 
+              value="{{ request.form.get('author', game['author']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Release</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="date"
+              name="release"
+              value="{{ request.form.get('release', game['release']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Description</label>
+          <div class="control">
+            <textarea 
+              class="textarea" 
+              name="description"
+              placeholder="Description">{{ request.form.get('description', game['description']) }}</textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Photo URL</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="photo"
+              placeholder="URL for photo" 
+              value="{{ request.form.get('photo', game['photo']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Genre</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="genre"
+              placeholder="Genre" 
+              value="{{ request.form.get('genre', game['genre']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">OS</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="os"
+              placeholder="OS" 
+              value="{{ request.form.get('os', game['os']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Processor</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="processor"
+              placeholder="Processor" 
+              value="{{ request.form.get('processor', game['processor']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">RAM (GB)</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="number"
+              name="ram"
+              min="1"
+              placeholder="RAM in GB" 
+              value="{{ request.form.get('ram', game['ram']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Video Card</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="text" 
+              name="video"
+              placeholder="Videocard" 
+              value="{{ request.form.get('video', game['video']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Storage (GB)</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="number"
+              name="space_on_pc"
+              min="1"
+              placeholder="Required storage in GB" 
+              value="{{ request.form.get('space_on_pc', game['space_on_pc']) }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Price ($)</label>
+          <div class="control">
+            <input 
+              class="input" 
+              type="number"
+              name="price"
+              min="0"
+              step="0.01"
+              placeholder="Game price" 
+              value="{{ request.form.get('price', game['price']) }}">
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+					<div class="control">
+						<button type="submit" class="button is-primary">Save Changes</button>
+					</div>
+				</div>
+				
+				</form>
+				
+				<hr>
+				
+				<form method="post" action="{{ url_for('game_delete', game_id=game[0]) }}" 
+							onsubmit="return confirm('Are you sure you want to delete this game?');">
+					<button type="submit" class="button is-danger">Delete Game</button>
+				</form>
+
+				<hr>
+				
+				<div class="mt-4">
+					<a href="{{ url_for('menu_page') }}" class="button is-light">Back to menu</a>
+				</div>
+
+    </div>
+  </section>
+
+</body>
+</html>

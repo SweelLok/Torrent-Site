@@ -14,8 +14,8 @@
     {% block navbar %}
     <nav class="navbar is-dark has-shadow is-spaced" id="main-navbar" style="width: 100vw;">
       <div class="navbar-brand">
-        <a class="navbar-item" href="{{ url_for('menu_page') }}">
-          <img src="../static/photos/logo.png" alt="Logo" class="image is-80x80 is-rounded">
+        <a class="navbar-item" href="{{ url_for ('menu_page')}}">
+          <img src="../static/photos/logo.png" style="max-height: 80px; border-radius: 50%;" class="py-0 px-0">
         </a>
       </div>
       <div class="navbar-menu navbar-end" id="nav-links">

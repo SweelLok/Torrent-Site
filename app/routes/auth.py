@@ -13,7 +13,7 @@ from ..models import User
 def load_user(user_id):
     print(f"Loading user with ID {user_id}")
     curs, conn = get_postgresql_connection()
-    curs.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+    curs.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
     user = curs.fetchone()
     conn.close()
     curs.close()

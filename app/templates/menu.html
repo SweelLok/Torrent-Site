@@ -18,30 +18,31 @@
     <div class="main-content p-4">
       <div class="container" style="margin-top: 2rem;">
         <div class="columns is-multiline">
-            {% for torrent in torrents %}
+            {% for game in games %}
             <div class="column is-one-quarter">
               <div class="card" style="margin-bottom: 1.5rem;">
-                  <div class="card-image">
-                      <figure class="image is-4by3">
-                          <img src="{{ torrent[3] }}" alt="{{ torrent[1] }}">
-                      </figure>
-                  </div>
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="{{ game[3] }}" alt="{{ game[1] }}">
+                  </figure>
+                </div>
                   <div class="card-content">
+                    <div class="content">
+                      <p class="title is-4"><b>{{ game[1] }}</b></p>
+                      <p class="subtitle is-6"><b>ID: {{ game[0] }}</b></p>
                       <div class="content">
-                          <p class="title is-4"><b>{{ torrent[1] }}</b></p>
-                          <p class="subtitle is-6"><b>ID: {{ torrent[0] }}</b></p>
-                          <div class="content">
-                              <p><b><strong>Author:</strong><br>{{ torrent[2] }}</b></p>
-                          </div>
+                      <p><b><strong>Author:</strong><br>{{ game[2] }}</b></p>
                       </div>
+                    </div>
                   </div>
+                </div>
               </div>
-          </div>
             {% endfor %}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
 {% endblock %}
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
