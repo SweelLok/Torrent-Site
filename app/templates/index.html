@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torrent</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <div class="container is-flex is-flex-direction-column" style="min-height: 100vh;">
+    {% block navbar %}
+    <nav class="navbar is-dark has-shadow is-spaced" id="main-navbar" style="width: 100vw;">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{{ url_for('menu_page') }}">
+          <img src="../static/photos/logo.png" alt="Logo" class="image is-80x80 is-rounded">
+        </a>
+      </div>
+      <div class="navbar-menu navbar-end" id="nav-links">
+        <a class="navbar-item" href="{{ url_for('add_page') }}">
+          <i class="fas fa-plus"></i>
+          <span>Add game</span>
+        </a>
+        <a class="navbar-item" href="{{ url_for('logout') }}">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Logout</span>
+        </a>
+        <a class="navbar-item" href="{{ url_for('menu_page') }}">
+          <i class="fas fa-home"></i>
+          <span>Menu</span>
+        </a>
+      </div>
+    </nav>
+    {% endblock navbar %}
+
+    <div class="main-content p-4">
+      {% block content %}
+      <!-- Content goes here -->
+      {% endblock content %}
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+  
+</body>
+</html>
